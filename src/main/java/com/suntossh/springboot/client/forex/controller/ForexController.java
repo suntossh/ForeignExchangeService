@@ -21,10 +21,10 @@ public class ForexController {
 	@GetMapping("/currency-exchange/from/{from}/to/{to}")
 	public ResponseEntity<Forex> fetchForex(@PathVariable String from, @PathVariable String to) {
 		double rate = Math.random() * 100;
-		Forex body = new Forex(from, to, new BigDecimal(rate), new BigDecimal(100*rate), null, env.getProperty("local.server.port"));
+		Forex body = new Forex(from, to, new BigDecimal(rate), new BigDecimal(100 * rate), null,
+				env.getProperty("local.server.port"));
 		System.out.println(body.toString());
-		return new ResponseEntity<Forex>(
-				body, HttpStatus.OK);
+		return new ResponseEntity<Forex>(body, HttpStatus.OK);
 	}
 
 }
